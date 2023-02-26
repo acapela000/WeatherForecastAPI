@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.0.3'
+	id 'org.springframework.boot' version '2.7.9'
 	id 'io.spring.dependency-management' version '1.1.0'
 }
 
@@ -9,6 +9,7 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '19'
 
 var jacksonVersion = "2.14.2"
+var swaggerVersion = "3.0.0"
 
 repositories {
 	mavenCentral()
@@ -21,6 +22,10 @@ dependencies {
 	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
 	implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
 
+	// https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter
+	implementation "io.springfox:springfox-boot-starter:${swaggerVersion}"
+	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
+	implementation "io.springfox:springfox-swagger-ui:${swaggerVersion}"
 }
 
 tasks.named('test') {
