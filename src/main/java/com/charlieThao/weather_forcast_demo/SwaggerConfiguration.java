@@ -23,9 +23,9 @@ public class SwaggerConfiguration {
                 "This is the API for weather forecast",
                 "0.0.1",
                 " ",
-                new Contact("Charlie Thao", " ", "google@gmail.com"),
+                new Contact("Charlie Thao", "https://github.com/acapela000/WeatherForecastAPI", "google@gmail.com"),
                 "MIT",
-                " ",
+                "https://github.com/acapela000/WeatherForecastAPI/blob/main/LICENSE.md",
                 Collections.emptyList()
         );
     }
