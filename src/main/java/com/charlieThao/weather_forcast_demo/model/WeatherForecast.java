@@ -23,6 +23,7 @@ public class WeatherForecast {
     private Timestamp date;
 
     public WeatherForecast() {
+        this(0.0, 0.0, false, "", "");
     }
 
     public WeatherForecast(double temperature, double humidity, boolean precipitation, String condition, String city) {
