@@ -2,8 +2,8 @@ package com.charlieThao.weather_forcast_demo.controller;
 
 import com.charlieThao.weather_forcast_demo.model.ResponseMsg;
 import com.charlieThao.weather_forcast_demo.model.WeatherForecast;
-import com.charlieThao.weather_forcast_demo.repository.Database;
-import com.charlieThao.weather_forcast_demo.repository.MemoryDatabase;
+import com.charlieThao.weather_forcast_demo.repository.weather.WFDatabase;
+import com.charlieThao.weather_forcast_demo.repository.weather.WFMemoryDatabase;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/forecast")
 public class Forecast {
-private Database db = new MemoryDatabase();
+private WFDatabase db = new WFMemoryDatabase();
 
     @RequestMapping (
             value = "/today/{city}",

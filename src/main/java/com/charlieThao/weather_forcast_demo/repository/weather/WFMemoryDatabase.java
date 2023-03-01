@@ -1,12 +1,11 @@
-package com.charlieThao.weather_forcast_demo.repository;
+package com.charlieThao.weather_forcast_demo.repository.weather;
 
 import com.charlieThao.weather_forcast_demo.model.WeatherForecast;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class MemoryDatabase implements Database {
+public class WFMemoryDatabase implements WFDatabase {
 
     public HashMap<String, WeatherForecast> weatherForecastList = new HashMap<>() {
         {
