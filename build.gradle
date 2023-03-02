@@ -26,6 +26,8 @@ dependencies {
 	implementation "io.springfox:springfox-boot-starter:${swaggerVersion}"
 	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
 	implementation "io.springfox:springfox-swagger-ui:${swaggerVersion}"
+
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 }
 
 tasks.named('test') {
