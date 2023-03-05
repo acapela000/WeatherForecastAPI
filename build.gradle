@@ -10,6 +10,8 @@ sourceCompatibility = '19'
 
 var jacksonVersion = "2.14.2"
 var swaggerVersion = "3.0.0"
+var lombokVersion = "1.18.26"
+var postgreSQLVersion = "42.5.4"
 
 repositories {
 	mavenCentral()
@@ -28,6 +30,21 @@ dependencies {
 	implementation "io.springfox:springfox-swagger-ui:${swaggerVersion}"
 
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+
+	// https://mvnrepository.com/artifact/org.projectlombok/lombok
+	compileOnly "org.projectlombok:lombok:${lombokVersion}"
+	annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+	//to connect to database
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-rest
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	// https://mvnrepository.com/artifact/org.postgresql/postgresql
+	implementation "org.postgresql:postgresql:${postgreSQLVersion}"
+
+
+
 }
 
 tasks.named('test') {

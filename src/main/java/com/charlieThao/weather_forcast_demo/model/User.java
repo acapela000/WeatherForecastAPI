@@ -2,116 +2,47 @@ package com.charlieThao.weather_forcast_demo.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.Data;
+import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Data
 @JsonSerialize
 public class User {
-
+    @Setter
+    private String id;
     @JsonProperty
-    private boolean isAdmin;
+    private String userName;//"unique"
     @JsonProperty
-    private String userName;
+    private String email;//"unique"
     @JsonProperty
-    private String password;
+    private String password;//"hashed"
     @JsonProperty
-    private Date dateOfBirth;
+    private List<Location> locationList;//"default to empty list"
     @JsonProperty
-    private String email;
-    @JsonProperty
-    private String phoneNumber;
-    @JsonProperty
-    private String address;
-    private String idAccount;
-
-    private final List<WeatherForecast> weatherForecastList = new ArrayList<>();
+    private List<Role> roleList;//"default to Role with name 'guest'"
+    //private final List<WeatherForecast> weatherForecastList = new ArrayList<>();
 
     public User() {
     }
 
-    public User(
-            boolean isAdmin, String userName, String password, Date dateOfBirth,
-            String email, String phoneNumber, String address, String idNumber) {
-        this.isAdmin = isAdmin;
+    public User(String userName, String email, String password,
+                List<Location> locationList, List<Role> roleList) {
+        this(null, userName, email,password, locationList, roleList);
+    }
+
+    public User(String id, String userName, String email, String password,
+                List<Location> locationList, List<Role> roleList) {
+        this.id = id;
         this.userName = userName;
-        this.password = password;
-        this.dateOfBirth = dateOfBirth;
         this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
-        this.idAccount = idNumber;
-    }
-
-
-
-
-    public boolean isAdmin() {
-        return isAdmin;
-    }
-
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
         this.password = password;
+        this.locationList = locationList;
+        this.roleList = roleList;
     }
 
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
 
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getIdAccount() {
-        return idAccount;
-    }
-
-    public void setIdAccount(String idAccount) {
-        this.idAccount = idAccount;
-    }
-
-    public List<WeatherForecast> getWeatherForecastList() {
-        return weatherForecastList;
-    }
 }

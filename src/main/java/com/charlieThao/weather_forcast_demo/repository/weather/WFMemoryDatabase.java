@@ -9,8 +9,9 @@ public class WFMemoryDatabase implements WFDatabase {
 
     public HashMap<String, WeatherForecast> weatherForecastList = new HashMap<>() {
         {
-            put("New York", new WeatherForecast(26.0, 25.0, false, "cloudy", "New York"));
-            put("Melbourn", new WeatherForecast(29.0, 20.0, true, "snowy", "Melbourn"));
+            //temperature, String condition, boolean isPrecipitating, double humidity)
+            put("New York", new WeatherForecast(26.0, "sunny", false, 0.8));
+            put("Melbourn", new WeatherForecast(29.0, "rainy", true, 0.7));
         }
     };
 

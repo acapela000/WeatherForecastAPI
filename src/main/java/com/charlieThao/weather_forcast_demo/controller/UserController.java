@@ -8,7 +8,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.print.attribute.standard.Media;
 import java.util.List;
 import java.util.UUID;
 
@@ -25,7 +24,7 @@ private UserDatabaseInterface userdb = new UserMemoryDatabase();
         produces = MediaType.APPLICATION_JSON_VALUE)
 public ResponseEntity<ResponseMsg> createUserAcc(@RequestBody User user) {
     String unique = UUID.randomUUID().toString();
-    user.setIdAccount(unique);
+    user.setId(unique);
     boolean created = userdb.creatUser(unique, user);
     if (created) {
         return ResponseEntity.ok(new ResponseMsg("User account is created successfully!"));

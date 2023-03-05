@@ -5,85 +5,45 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.UUID;
 
 @JsonSerialize
 public class WeatherForecast {
 
     @JsonProperty
+    private String id;
+    @JsonProperty
+    private String icon;
+    @JsonProperty
     private double temperature;
-    @JsonProperty
-    private double humidity;
-    @JsonProperty
-    private boolean precipitation;
     @JsonProperty
     private String condition;
     @JsonProperty
-    private String city;
+    private boolean isPrecipitating;
     @JsonProperty
-    private Timestamp date;
+    private double humidity;
+    @JsonProperty
+    private Timestamp lastUpdated;
+
+    public WeatherForecast(double temperature, String condition, boolean isPrecipitating, double humidity) {
+        this(UUID.randomUUID().toString(), "", temperature, condition, isPrecipitating, humidity, new Timestamp(new Date().getTime()));
+    }
 
     public WeatherForecast() {
-        this(0.0, 0.0, false, "", "");
+        this(" ", " ", 0.0, " ", false,0.0);
     }
 
-    public WeatherForecast(double temperature, double humidity, boolean precipitation, String condition, String city) {
-        this(temperature, humidity, precipitation, condition, city, new Timestamp(new Date().getTime()));
+    public WeatherForecast(String id, String icon, double temperature, String condition, boolean isPrecipitating, double humidity) {
+        this(id, icon, temperature, condition, isPrecipitating, humidity, new Timestamp(new Date().getTime()));
     }
 
-    public WeatherForecast(double temperature, double humidity, boolean precipitation, String condition, String city, Timestamp date) {
+    public WeatherForecast(String id, String icon, double temperature, String condition, boolean isPrecipitating, double humidity, Timestamp lastUpdated) {
+        this.id = id;
+        this.icon = icon;
         this.temperature = temperature;
-        this.humidity = humidity;
-        this.precipitation = precipitation;
         this.condition = condition;
-        this.city = city;
-        this.date = date;
-    }
-
-    public double getTemperature() {
-        return temperature;
-    }
-
-    public void setTemperature(double temperature) {
-        this.temperature = temperature;
-    }
-
-    public double getHumidity() {
-        return humidity;
-    }
-
-    public void setHumidity(double humidity) {
+        this.isPrecipitating = isPrecipitating;
         this.humidity = humidity;
-    }
-
-    public boolean isPrecipitation() {
-        return precipitation;
-    }
-
-    public void setPrecipitation(boolean precipitation) {
-        this.precipitation = precipitation;
-    }
-
-    public String getCondition() {
-        return condition;
-    }
-
-    public void setCondition(String condition) {
-        this.condition = condition;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Timestamp date) {
-        this.date = date;
+        this.lastUpdated = lastUpdated;
     }
 }
