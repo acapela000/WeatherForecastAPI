@@ -24,7 +24,7 @@ private UserDatabaseInterface userdb = new UserMemoryDatabase();
         produces = MediaType.APPLICATION_JSON_VALUE)
 public ResponseEntity<ResponseMsg> createUserAcc(@RequestBody User user) {
     String unique = UUID.randomUUID().toString();
-    user.setId(unique);
+    //user.setId(unique);
     boolean created = userdb.creatUser(unique, user);
     if (created) {
         return ResponseEntity.ok(new ResponseMsg("User account is created successfully!"));

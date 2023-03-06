@@ -11,11 +11,11 @@ public class UserMemoryDatabase implements UserDatabaseInterface {
     HashMap<String, User> userHashMap = new HashMap<>(){{
             //String id, String userName, String email, String password,
             //  List<Location> locationList, List<Role> roleList
-            put("001", new User("001", "Nanami", "nanami@io.com", " ", null, null));
-            put("002", new User("002", "Luluka", "luluka@of.com", " ", null, null));
-            put("003", new User("003", "MomoNa", "momoa@gmail.com", " ", null, null));
-            put("004", new User("004", "Lulupy", "lulupy@org.com", " ", null, null));
-            put("005", new User("005", "Fifici", "fifici@net.com", " ", null, null));
+            put("001", new User("001", "Nanami", "nanami@io.com", " "));
+            put("002", new User("002", "Luluka", "luluka@of.com", " "));
+            put("003", new User("003", "MomoNa", "momoa@gmail.com", " "));
+            put("004", new User("004", "Lulupy", "lulupy@org.com", " "));
+            put("005", new User("005", "Fifici", "fifici@net.com", " "));
         }};
 
     @Override
