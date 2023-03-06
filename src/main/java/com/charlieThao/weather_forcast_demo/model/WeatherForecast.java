@@ -1,17 +1,29 @@
 package com.charlieThao.weather_forcast_demo.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.GenericGenerators;
 
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
+@Entity
+@Table(name = "tc_wf")
 @JsonSerialize
+@JsonDeserialize
 public class WeatherForecast {
 
-    @JsonProperty
+    @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
+
     @JsonProperty
     private String icon;
     @JsonProperty
@@ -23,7 +35,13 @@ public class WeatherForecast {
     @JsonProperty
     private double humidity;
     @JsonProperty
+    @Column(nullable = false)
+    @CreationTimestamp
     private Timestamp lastUpdated;
+
+    @ManyToOne
+    @JoinColumn(name = "location_id", nullable = false)
+    private Location location;
 
     public WeatherForecast(double temperature, String condition, boolean isPrecipitating, double humidity) {
         this(UUID.randomUUID().toString(), "", temperature, condition, isPrecipitating, humidity, new Timestamp(new Date().getTime()));
