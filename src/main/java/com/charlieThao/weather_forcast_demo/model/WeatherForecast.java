@@ -3,18 +3,22 @@ package com.charlieThao.weather_forcast_demo.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.GenericGenerators;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Setter
+@Getter
 @Table(name = "tc_wf")
+@AllArgsConstructor
 @JsonSerialize
 @JsonDeserialize
 public class WeatherForecast {

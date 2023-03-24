@@ -1,10 +1,9 @@
 package com.charlieThao.weather_forcast_demo.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.Columns;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
@@ -13,6 +12,12 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@JsonSerialize
+@JsonDeserialize
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "tc_user")
 public class User {
 
