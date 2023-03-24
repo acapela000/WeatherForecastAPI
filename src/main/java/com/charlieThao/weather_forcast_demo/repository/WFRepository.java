@@ -13,12 +13,5 @@ import java.util.List;
 @CrossOrigin("*")
 public interface WFRepository extends CrudRepository<WeatherForecast, String>, PagingAndSortingRepository<WeatherForecast, String> {
 
-    @RestResource(path = "/precipitating")
-    List<WeatherForecast> findByPrecipitating(boolean isPrecipitating);
 
-    @RestResource(path = "/condition")
-    List<WeatherForecast> findByCondition(String condition);
-
-    @RestResource(path = "/temperature")
-    List<WeatherForecast> findByTemperature(String temperature);
 }
