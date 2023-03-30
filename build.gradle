@@ -5,8 +5,9 @@ plugins {
 }
 
 group = 'com.charlieThao'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 sourceCompatibility = '19'
+archivesBaseName = 'wf'
 
 var jacksonVersion = "2.14.2"
 var swaggerVersion = "3.0.0"
@@ -22,6 +23,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+	//to serialize and deserialize json
 	implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
 
 	// https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter
@@ -29,7 +31,7 @@ dependencies {
 	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
 	implementation "io.springfox:springfox-swagger-ui:${swaggerVersion}"
 
-	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+ 	//	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 
 	// https://mvnrepository.com/artifact/org.projectlombok/lombok
 	compileOnly "org.projectlombok:lombok:${lombokVersion}"
