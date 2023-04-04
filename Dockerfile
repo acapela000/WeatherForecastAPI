@@ -5,6 +5,8 @@ WORKDIR /wf_api_img
 
 COPY . /wf_api_img
 
+RUN chmod +x ./gradlew
+
 RUN ./gradlew clean build -x test
 
 
