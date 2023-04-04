@@ -15,4 +15,6 @@ FROM openjdk:19-jdk-alpine
 
 COPY --from=builder-wf /wf_api_img/build/libs/wf-0.0.1.jar app.jar
 
+EXPOSE 8080
+
 ENTRYPOINT exec java -jar app.jar
