@@ -18,6 +18,12 @@ public interface LocationRepository extends CrudRepository<Location, String>, Pa
     @RestResource(path = "/country-city")
     List<Location> findByCountryAndCity(String country, String city);
 
+    @RestResource(path = "/country")
+    List<Location> findByCountry(String country);
+
+    @RestResource(path = "/city")
+    List<Location> findByCity(String city);
+
     @RestResource(path = "/name")
     List<Location> findByName(String name);
 
